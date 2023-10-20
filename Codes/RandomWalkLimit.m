@@ -1,0 +1,14 @@
+clc
+clear
+n1=20;
+n2=100;
+n3=5000;
+t=1;
+t1=0:1/n1:t;
+t2=0:1/n2:t;
+t3=0:1/n3:t;
+S0=0;
+S1=cumsum([S0;((2*(rand(n1,1)>.5)-1)*sqrt(t/n1))]);
+S2=cumsum([S0;((2*(rand(n2,1)>.5)-1)*sqrt(t/n2))]);
+S3=cumsum([S0;((2*(rand(n3,1)>.5)-1)*sqrt(t/n3))]);
+plot(t1,S1,t2,S2,t3,S3,t1,zeros(n1+1,1),'k')
