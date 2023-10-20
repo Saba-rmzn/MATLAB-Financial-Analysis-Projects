@@ -1,0 +1,9 @@
+function [Vfix,Vfloat]=SwapPrice(L,m,lastfloatrate,fixrate,ti,ri)
+k=L*fixrate/m;
+kstar=L*lastfloatrate/m;
+rn=ri(end);
+tn=ti(end);
+Bfix=sum(k*exp(-ri.*ti))+L*exp(-rn*tn);
+Bfloat=(kstar+L)*exp(-ri(1)*ti(1));
+Vfix=Bfloat-Bfix;
+Vfloat=Bfix-Bfloat;
